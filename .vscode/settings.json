@@ -1,0 +1,35 @@
+{
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript"
+  ],
+  "eslint.alwaysShowStatus": true,
+  "vetur.validation.template": true,
+  "editor.tabSize": 2,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#0c0f16",
+    "activityBar.activeBackground": "#222429",
+    "activityBar.activeBorder": "#79f307",
+    "activityBar.activeFocusBorder": "#ff0000",
+    "activityBar.foreground": "#4ce988",
+    "activityBar.inactiveForeground": "#f8fc04",
+    "activityBarBadge.background": "#b30d0d",
+    "activityBarBadge.foreground": "#fffff1",
+    "badge.background": "#cff9ff",
+    "statusBar.background": "#111213",
+    "statusBarItem.hoverBackground": "#d5fcff",
+    "statusBar.foreground": "#00c6f8",
+    "statusBar.border": "#111213",
+    "breadcrumb.activeSelectionForeground": "#ffffff",
+    "breadcrumb.focusForeground": "#fbff00",
+    "terminal.ansiGreen": "#e9d76e",
+  },
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 8,
+  "workbench.editor.scrollToSwitchTabs": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
