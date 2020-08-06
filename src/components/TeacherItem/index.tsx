@@ -3,31 +3,52 @@ import React from "react";
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
 
 import "./styles.css";
+import api from "../../services/api";
 
-function TeacherItem() {
+export interface Teacher {
+  id: number,
+  subject: string,
+  cost: number,
+  user_id: number,
+  name: string,
+  avatar: string,
+  whatsapp: string,
+  bio: string
+}
+
+interface TeacherItemProps {
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({teacher}) => {
+  function createNewConnection() {
+    api.post("connections",
+      {
+        user_id: teacher.id
+      })
+  }
+
   return (
   <article className="teacher-item">
   <header>
-    <img src="https://avatars1.githubusercontent.com/u/54284082?s=460&u=571d9da12bb5894eb1a9d8cfa3f2fe1b7e1dedda&v=4" alt=""/>
+    <img src={teacher.avatar} alt=""/>
     <div>
-      <strong>Guilherme Neves Trindade</strong>
-      <span>Química</span>
+      <strong>{teacher.name}</strong>
+      <span>{teacher.subject}</span>
     </div>
   </header>
   <p>
-    Entusiasta das melhores tecnologias de matemática avançada.
-    <br /> <br />
-    Apaixonado por explodir coisas em laboratórios e por mudar a vida das pessoas através de experiências. Mais de 200 mil pessoas foram alvos de suas experiencias.
+    {teacher.bio}
   </p>
   <footer>
     <p>
       Preço/hora:
-      <strong> R$ 100,00</strong>
+    <strong> R$ {Number(teacher.cost).toFixed(2)}</strong>
     </p>
-    <button type="button">
+    <a onClick={createNewConnection} href={`https://wa.me/${teacher.whatsapp.replace(/[^0-9s]/g, "")}`} rel="noopener noreferrer" target="_blank">
       <img src={whatsappIcon} alt="Whatsapp"/>
       Entrar em contato
-    </button>
+    </a>
   </footer>
 </article>
   )
